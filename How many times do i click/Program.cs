@@ -2,6 +2,8 @@
 using System.Drawing;
 
 using EloBuddy;
+using EloBuddy.SDK;
+using EloBuddy.SDK.Events;
 
 namespace How_many_times_do_i_click
 {
@@ -10,6 +12,11 @@ namespace How_many_times_do_i_click
         private static int Clicks;
 
         private static void Main(string[] args)
+        {
+            Loading.OnLoadingComplete += Loading_OnLoadingComplete;
+        }
+
+        private static void Loading_OnLoadingComplete(EventArgs args)
         {
             Player.OnIssueOrder += Player_OnIssueOrder;
             Drawing.OnDraw += Drawing_OnDraw;
